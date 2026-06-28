@@ -1,0 +1,2 @@
+#!/bin/sh
+exec awk '/^[0-9.]+$/ { count++; sum+=$1; } END { print sum / count; }'
