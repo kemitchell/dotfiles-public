@@ -1,0 +1,33 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require 'cgi'
+
+delimeter = ARGV[0]
+
+if delimeter.nil?
+  $stderr.puts('Usage: <delimiter>')
+  exit 1
+end
+
+# Parse all the rows.
+entries = []
+$stdin.each_line do |line|
+  line.strip!
+  next if line.empty?
+  next if line.start_with?('#')
+
+  entries << line.split(delimeter, -1).map { |x| x.nil? ? '' : x }
+end
+
+# Print rows.
+$stdout.print('<table>')
+entries.each do |entry|
+  $stdout.print('<tr>')
+  entry.each do |value|
+    $stdout.print("<td>#{CGI.escapeHTML(value)}</td>")
+  end
+  $stdout.print('</tr>')
+end
+$stdout.print('</table>')
+$stdout.print("\n")

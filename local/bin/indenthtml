@@ -1,0 +1,11 @@
+#!/bin/sh
+exec tidy \
+  --custom-tags blocklevel \
+  --show-warnings no \
+  --doctype omit \
+  --indent-spaces 2 \
+  --show-body-only yes \
+  --tidy-mark no \
+  -indent \
+  -quiet \
+  -wrap 0

@@ -1,0 +1,18 @@
+#!/usr/bin/env node
+
+const chunks = []
+process.stdin
+  .on('data', function (chunk) {
+    chunks.push(chunk)
+  })
+  .once('error', function (error) {
+    throw error
+  })
+  .once('end', function () {
+    const input = Buffer.concat(chunks)
+    process.stdout.write(unwrap(input.toString()))
+  })
+
+function unwrap (string) {
+  return string.replace(/([^\s])\n([^\s])/g, '$1 $2')
+}

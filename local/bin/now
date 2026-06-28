@@ -1,0 +1,2 @@
+#!/bin/sh
+date --iso-8601=minutes | tr -s 'T' ' ' | sed 's/[-+][0-9:]\+$//' | tr -d ':'

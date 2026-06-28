@@ -1,0 +1,13 @@
+#!/bin/sh
+exec sed \
+  -e 's/[“”]/"/g' \
+  -e "s/[‘’]/'/g" \
+  -e 's/—/---/g' \
+  -e 's/–/--/g' \
+  -e 's/«/<</g' \
+  -e 's/»/>>/g' \
+  -e 's/§§ /sections /g' \
+  -e 's/§§/sections /g' \
+  -e 's/§ /section /g' \
+  -e 's/§/section /g' \
+  -e 's/…/.../g'

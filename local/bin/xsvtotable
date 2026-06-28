@@ -1,0 +1,36 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+delimeter = ARGV[0]
+
+if delimeter.nil?
+  $stderr.puts('Usage: <delimiter>')
+  exit 1
+end
+
+# Parse all the rows.
+entries = []
+$stdin.each_line do |line|
+  line.strip!
+  next if line.empty?
+  next if line.start_with?('#')
+
+  entries << line.split(delimeter, -1).map { |x| x.nil? ? '' : x }
+end
+
+# Find the longest value in each column.
+longest = {}
+entries.each do |entry|
+  entry.each_with_index do |value, index|
+    longest[index] = value.length if value.length > longest.fetch(index, 0)
+  end
+end
+
+# Print rows.
+entries.each do |entry|
+  entry.each_with_index do |value, index|
+    width = longest[index] + 2
+    $stdout.print(value.ljust(width, ' '))
+  end
+  $stdout.print("\n")
+end
