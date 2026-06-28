@@ -1,0 +1,30 @@
+#!/bin/sh
+set -e
+
+usage() {
+  cat <<EOS
+Usage: prompttext [options]
+
+Options:
+  --prompt TEXT
+  --placeholder TEXT
+  --value TEXT
+EOS
+}
+
+while test $# != 0; do
+  case "$1" in
+    -p | --prompt) prompt="$2" ; shift ;;
+    -v | --value) value="$2" ; shift ;;
+    --placeholder ) placeholder="$2" ; shift ;;
+    *) usage ; exit 1 ;;
+  esac
+  shift
+done
+
+exec gum input  \
+  --no-show-help \
+  --prompt="$prompt> " \
+  --placeholder="$placeholder" \
+  --value="$value" \
+  --width=0
