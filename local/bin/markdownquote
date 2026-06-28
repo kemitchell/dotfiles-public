@@ -1,2 +1,2 @@
 #!/bin/sh
-awk '/^$/ { print ">"; next } { print ">", $0 }'
+exec awk '/^$/ { print ">"; next } { print ">", $0 }'

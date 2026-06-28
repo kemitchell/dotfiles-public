@@ -1,2 +1,2 @@
 #!/bin/sh
-exec gum style --bold --align center --border normal --padding "0 1" $@
+exec gum style --bold --align center --border normal --padding "0 1" "$@"

@@ -1,2 +1,2 @@
 #!/bin/sh
-"$@" >/dev/null
+exec "$@" >/dev/null

@@ -9,4 +9,4 @@ if [ -z "$file" ] || [ -z "$from" ] || [ -z "$to" ]; then
   exit 1
 fi
 
-sed -i "s/^$(printf '%s' "$from" | escapeforsedsearch)$/$(printf '%s' "$to" | escapeforsedreplace)/" "$file"
+exec sed -i "s/^$(printf '%s' "$from" | escapeforsedsearch)$/$(printf '%s' "$to" | escapeforsedreplace)/" "$file"
