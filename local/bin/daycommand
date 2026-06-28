@@ -1,0 +1,2 @@
+#!/bin/sh
+exec date --date "$(basename "$0")" --iso-8601
