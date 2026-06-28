@@ -1,0 +1,12 @@
+#!/bin/sh
+flags="--multi --reverse"
+if test -n "$1"; then
+  fzf $flags --prompt="$1 "
+else
+  fzf $flags
+fi
+if test "$?" = 0; then
+  exit 0
+else
+  exit 1
+fi
