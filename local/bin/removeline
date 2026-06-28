@@ -1,0 +1,11 @@
+#!/bin/sh
+set -e
+
+file="$1"
+line="$2"
+if [ -z "$file" ] || [ -z "$line" ]; then
+  echo "Usage: <file> <line>"
+  exit 1
+fi
+
+sed -i "/$(echo "$line" | escapeforsedsearch)/d" "$file"
