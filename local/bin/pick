@@ -1,0 +1,7 @@
+#!/bin/sh
+flags="--no-multi --reverse"
+if test -n "$1"; then
+  eval "fzf $flags --prompt='$1 '"
+else
+  eval "fzf $flags"
+fi
