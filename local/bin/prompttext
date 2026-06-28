@@ -24,6 +24,7 @@ done
 
 exec gum input  \
   --no-show-help \
+  --char-limit=0 \
   --prompt="$prompt> " \
   --placeholder="$placeholder" \
   --value="$value" \
