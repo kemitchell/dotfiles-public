@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+count = ARGV[0].nil? ? 1 : ARGV[0].to_i
+$stdin.each_line do |line|
+  space = count < 10 ? '  ' : ' '
+  puts line.sub(/^(\s*)/, "\\1#{count}.#{space}")
+  count += 1
+end
