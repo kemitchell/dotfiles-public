@@ -1,0 +1,9 @@
+#!/bin/sh
+set -e
+
+if [ -z "$1" ]; then
+  echo "Usage: <prompt>"
+  exit 1
+fi
+
+exec gum confirm "$1" --no-show-help
