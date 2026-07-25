@@ -1,2 +1,2 @@
 #!/bin/sh
-exec xxd "-l${1:-16}" -ps /dev/urandom
+exec xxd "-l${1:-16}" "-c${1:-16}" -ps /dev/urandom
